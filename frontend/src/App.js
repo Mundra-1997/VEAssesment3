@@ -14,8 +14,6 @@ function App() {
       <Route path='/addNewTask' element={<AddTaskForm/>}/>
      <Route path="/editTask/:taskId" element={<EditTaskForm />} />
 
-      
-
     </Routes>
    </Router>
   );

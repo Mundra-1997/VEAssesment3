@@ -8,9 +8,9 @@ const TaskDetails=()=> {
   const { id } = useParams();
 
   useEffect(() => {
-    // Fetch a single task by ID from the backend
+    
     axios
-      .get(`http://localhost:5000/tasks/${id}`)
+      .get(`https://v3btodo.onrender.com/tasks/${id}`)
       .then((response) => {
         setTask(response.data);
       })

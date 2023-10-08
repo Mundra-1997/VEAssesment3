@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './AddNewTask.css'; // Import your CSS file
+import './AddNewTask.css'; 
+ import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const AddTaskForm = () => {
   const navigate = useNavigate();
@@ -16,13 +18,25 @@ const AddTaskForm = () => {
       description: descriptionRef.current.value,
     };
 
-    // Create a new task
+    
     axios
-      .post('http://localhost:5000/tasks', taskData)
+      .post('https://v3btodo.onrender.com/tasks', taskData)
       .then(() => {
-        navigate('/'); // Redirect to the task list after adding
+         toast.success('Task Added successfully!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000, 
+      });
+       e.target.reset();
+          setTimeout(() => {
+          navigate('/');
+        }, 3000);
+       
       })
       .catch((error) => {
+           toast.error('Something went wrong', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000, 
+      });
         console.error('Error adding task:', error);
       });
   };
@@ -51,7 +65,10 @@ const AddTaskForm = () => {
         <button type="submit" className="submit-button">
           Add
         </button>
+       
       </form>
+      
+       <ToastContainer/>
     </div>
   );
 };

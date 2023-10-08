@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
- import './TaskList.css'; // Import your CSS file
-
+ import './TaskList.css'; 
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 const TaskList=()=> {
   const [tasks, setTasks] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch all tasks from the backend
+  
     axios
-      .get('http://localhost:5000/tasks')
+      .get('https://v3btodo.onrender.com/tasks')
       .then((response) => {
         setTasks(response.data);
       })
@@ -23,10 +24,14 @@ const TaskList=()=> {
     console.log('Deleting task with ID:', taskId);
 
     axios
-      .delete(`http://localhost:5000/tasks/${taskId}`)
+      .delete(`https://v3btodo.onrender.com/tasks/${taskId}`)
       .then(() => {
+           toast.success('Task Deleted successfully!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000, 
+      });
         console.log('Task deleted successfully.');
-        // Remove the deleted task from the state
+       
         setTasks(tasks.filter((task) => task._id !== taskId));
       })
       .catch((error) => {
@@ -38,11 +43,10 @@ const TaskList=()=> {
     console.log('Completing task with ID:', taskId);
 
     axios
-      .put(`http://localhost:5000/tasks/${taskId}`, { completed: !completed })
+      .put(`https://v3btodo.onrender.com/tasks/${taskId}`, { completed: !completed })
       .then(() => {
         console.log('Task marked as completed successfully.');
-        // You can update the task status in the state or fetch the updated data
-        // For simplicity, you can reload the task list
+        
         window.location.reload();
       })
       .catch((error) => {
@@ -69,6 +73,7 @@ const TaskList=()=> {
           </button>
         </div>
       ))}
+      <ToastContainer/>
     </div>
   );
 }
