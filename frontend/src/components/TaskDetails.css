@@ -1,0 +1,47 @@
+/* TaskDetails.css */
+
+/* Container for the task details */
+.task-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    /* Center the content horizontally */
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+/* Task title */
+.task-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Task description */
+.task-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Task status */
+.task-status {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .task-details-container {
+        width: 100%;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,57 @@
+/* TaskList.css */
+
+/* Container for the task list */
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.heading{
+    font-size: 50px;
+}
+
+/* Individual task item */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    /* Background color for task items */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Box shadow for a subtle elevation effect */
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+    /* Smooth transition for background color */
+}
+
+/* Task title with completed style */
+.task-title.completed {
+    text-decoration: line-through;
+    color: #555;
+    /* Adjust the text color for completed tasks */
+}
+
+/* Buttons for Edit, Delete, and Complete */
+.task-button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    border-radius: 3px;
+    transition: background-color 0.2s ease-in-out;
+    /* Smooth transition for background color */
+}
+
+/* Hover effect for buttons */
+.task-button:hover {
+    background-color: #0056b3;
+    /* Button background color on hover */
+}
